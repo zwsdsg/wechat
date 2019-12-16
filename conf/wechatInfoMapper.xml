@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wechat.getToken.dao.WechatMapper">
+
+
+    <insert id="addWecahtInfo" >
+        insert into wechatinfo (app_id,app_secret) values (#{appId},#{appSecret})
+    </insert>
+    
+   <insert id="addRuleOfReply">
+   		insert into ruleofautoreply (keyword, replytext) values (#{key},#{replyText})
+   </insert>
+    
+    <select id="getAllKeyword" resultType="java.lang.String">
+    	select keyword from ruleofautoreply
+    </select>
+    
+    
+    <select id="getReplyTextbykey" resultType="java.lang.String">
+    	select replytext from ruleofautoreply where keyword = #{key}
+    </select>
+    
+</mapper>
